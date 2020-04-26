@@ -1,0 +1,145 @@
+/***************BODY***************/
+body{
+    margin: 0;
+    overflow: auto;
+    background-color: #f6eedf;
+}
+.page{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    grid-row-gap: 150px;
+    font-family: 'Racing Sans One', cursive;
+    
+}
+.head{
+    width: 100%;
+    grid-area: 1/1/1/3;
+    background-color: #d63447;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    word-spacing: 5px;
+    letter-spacing: 5px;
+}
+/***************MAIN_SECTION***************/
+[class*="body-"]{
+    padding: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+.body-1{
+    font-size: 40px;
+    overflow: auto;
+    color: #000;
+    letter-spacing: 7px;
+}
+.body-2{
+    position: relative;
+}
+[class*="img-"]{
+    position: absolute;
+}
+/***************MAIN_SECTION_IMAGES***************/
+.img-3{
+    bottom: 250px;
+    left: 200px;
+    animation-name:animate;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.img-1{
+    bottom: 150px;
+    left: 400px;
+    animation-name:animate;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.img-2{
+    bottom: 100px;
+    left: 50px;
+    animation-name:animate;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/***************ANIMATIONS***************/
+@keyframes animate{
+    0%{
+        transform: rotateZ(360deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+} 
+/***************SELECT_ELEMENTS***************/
+select{
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 30px;
+    outline: none;
+    padding: 0 20px;
+    font-family: 'Racing Sans One', cursive;
+
+}
+/***************SELECT_ELEMENTS***************/
+.data{
+    font-size: 50px;
+    font-family: 'Racing Sans One', cursive;
+    color: #fff;
+    background-color: #FF8080;
+    border-radius: 50px;
+    max-width: 500px;
+    padding: 50px 0px 0px;
+    margin: 50px auto;
+    height: 150px;
+    overflow: auto;
+}
+/***************SCREEN_RESOLUTION***************/
+@media(max-width:600px){
+    .body-1{
+        grid-area: 2/1/2/3;
+    }
+    .body-2{
+        display: none;
+    }
+}
+@media(max-width:800px){
+    .img-3{
+        display: none;
+    }
+    .img-2{
+        left: 0px;
+    }
+}
+@media(max-width:1030px){
+    .img-1{
+        display: none;
+    }
+    .img-2,.img-3{
+        left: 0;
+    }
+}
+.bottom-container
+{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FF8080;
+    padding: 50px;
+    font-size: 20px;
+}
+.footer-link
+{
+    
+    text-decoration: none;
+    word-spacing: 30px;
+    color: rgba(0, 0, 0,0.8);
+    margin: 10px 20px;
+}
+.footer-link:hover
+{
+    color: #FFFFFF;
+}
