@@ -6,41 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Covid-19</title>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Podkova&family=Russo+One&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="page">
-        <div class="head">
-            <marquee direction="left" scrollamount="10" ><h1 id="headline">SITE IS UNDER MAINTENANCE</h1></marquee>
+<body style="overflow-x: hidden;">
+    <div class="navbar nav">
+        <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">Symptomes</a>
+        <a href="https://www.who.int/health-topics/coronavirus#tab=tab_2">Preventions</a>
+    </div>
+
+    <div class="row">
+        <div class="main-1 col-md-6">
+            <h3 id="alert">Covid-19 Alert!!</h3>
+            <div class="inputboxes">
+                <select id="state_wise">
+                    <option value="">State</option>
+                </select>
+                <select id="dist_wise">
+                    <option value="">District</option>
+                </select>
+            </div>
         </div>
-
-
-        <div class="body-1">
-            <h1>COVID-19</h1>
-            <select id="state_wise">
-                <option value="">Select State</option>
-            </select>
-            <h1 class="data" id="state_confirmed">0</h1>
-            <select id="dist_wise">
-                <option value="">Select District</option>
-            </select>
-            
-            <h1 class="data" id="dist_confirmed">0</h1>
-        </div>
-
-        <div class="body-2">
-            <img src="./Corona.png" class="img-1" width="100" height="100" alt="">
-            <img src="./Corona.png" class="img-2" width="150" height="150" alt="">
-            <img src="./Corona.png" class="img-3" width="200" height="200" alt="">
+        <div class="col-md-6 main-2">
+            <img src="./Corona.png" class="rounded" alt="">
         </div>
     </div>
-    <div class="bottom-container">
-        <a class="footer-link" href="https://www.linkedin.com/in/bhavuk-dhawan-739242146">LinkedIn</a>
-        <a class="footer-link" href="https://github.com/devloup4Bhavuk">GitHub</a>
-        <a class="footer-link" href="https://www.facebook.com/bhavuk.daone">Facebook</a>
-        <a class="footer-link" href="https://www.instagram.com/bhavuk_dhawan/">Instagram</a>
-        
-        <p>© 2020 devloup4Bhavuk.</p>
+    <div class="card-content row">
+        <div class="col-sm-5" id="state_confirmed">State Data</div>
+        <div class="col-sm-5" id="dist_confirmed"> District Data</div>
     </div>
 </body>
 <script src="./index.js"></script>

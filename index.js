@@ -3,15 +3,14 @@
 // diswise:
 // https://api.covid19india.org/state_district_wise.json
 
-let obj1 = {};
-let obj2 = {};
+let obj1 = {},
+    obj2 = {};
 
-let select_elem = '';
+let state_list = document.getElementById('state_wise'),
+    dist_list  = document.getElementById('dist_wise');
 
-let state_list = document.getElementById('state_wise');
-let dist_list = document.getElementById('dist_wise');
-
-let state_name = '';
+let select_elem = '',
+    state_name  = '';
 
 
 var xhr = new XMLHttpRequest();
@@ -20,7 +19,6 @@ xhr.send();
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var myObj = JSON.parse(this.responseText);
-        document.getElementById('headline').innerHTML = "TOTAL CASES IN INDIA :"+myObj.statewise[0].confirmed;
         stateList(myObj.statewise)
         obj1 = myObj;
     }
@@ -28,23 +26,27 @@ xhr.onreadystatechange = function() {
 function stateList(states) {
     for(var i=0;i<states.length;i++) {
         var option = document.createElement('option');
+        option.className ="dropdown-item";
         option.value = i;
         option.textContent = states[i].state;
         state_list.appendChild(option);
+        
     }
     // console.log(states);
-    
-    
 }
+
+
 state_list.addEventListener('change',function (event) {
     
     var index = event.target.value;
     console.log(obj1.statewise[index].confirmed)
-    document.getElementById('state_confirmed').innerHTML = "Confirmed: "+obj1.statewise[index].confirmed + "<br>Active: "+obj1.statewise[index].active + "<br>Deaths: "+obj1.statewise[index].deaths;
+    document.getElementById('state_confirmed').innerHTML = "Confirmed: "+obj1.statewise[index].confirmed + "<br><hr>Active: "+obj1.statewise[index].active + "<br><hr>Deaths: "+obj1.statewise[index].deaths;
     document.getElementById('dist_confirmed').innerHTML = "0";
-    document.getElementById('dist_confirmed').innerHTML = ""
+    document.getElementById('dist_confirmed').innerHTML = "district Data"
     dist_wise(obj1.statewise[index].state);
 })
+
+
 function dist_wise(state_name) {
     var xhr2 = new XMLHttpRequest();
     xhr2.open('GET','https://api.covid19india.org/state_district_wise.json');
@@ -67,12 +69,6 @@ function dist_wise(state_name) {
     function dist_data(dist) {
         select_elem ='<option value="">Select District</option>';
         Object.entries(dist).forEach(entry =>{
-            // console.log(entry[0]);
-            // var option = document.createElement('option');
-            // option.value = entry[0];
-            // option.classList.add('dist');
-            // option.textContent = entry[0];
-            // dist_list.appendChild(option);
             select_elem = select_elem + '<option class="dist" value="' + entry[0] + '">' + entry[0] + '</option>'
             dist_list.innerHTML = select_elem;
         });
@@ -82,7 +78,7 @@ function dist_wise(state_name) {
         Object.entries(my_dist).forEach(entry =>{
             if(entry[0]=== event.target.value){
                 console.log(entry[1].confirmed);
-                document.getElementById('dist_confirmed').innerHTML = "Confirmed: "+entry[1].confirmed + "<br>Active:"+ +entry[1].active;
+                document.getElementById('dist_confirmed').innerHTML = "Confirmed: "+entry[1].confirmed + "<br><hr>Active:"+ +entry[1].active;
             }
         });
     })
